@@ -1,0 +1,116 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #186ddc;
+    font-family: Arial, sans-serif;
+}
+.piano-container {
+    background: #222;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    position: relative;
+}
+.piano-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    margin-bottom: 10px;
+}
+.volume-slider {
+    appearance: none;
+    width: 100px;
+    height: 5px;
+    background: #444;
+    border-radius: 5px;
+}
+.toggle-switch {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.toggle-switch input {
+    display: none;
+}
+.toggle-switch .slider {
+    width: 40px;
+    height: 20px;
+    background: #444;
+    border-radius: 10px;
+    position: relative;
+    transition: 0.3s;
+}
+.toggle-switch .slider::before {
+    content: '';
+    width: 18px;
+    height: 18px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    left: 2px;
+    top: 1px;
+    transition: 0.3s;
+}
+.toggle-switch input:checked + .slider {
+    background: #0f0;
+}
+.toggle-switch input:checked + .slider::before {
+    transform: translateX(20px);
+}
+.piano {
+    display: flex;
+    position: relative;
+    padding: 10px;
+}
+.key {
+    width: 50px;
+    height: 180px;
+    border: 1px solid black;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.1s ease;
+}
+.key:active {
+    transform: translateY(5px);
+}
+.key.black {
+    height: 120px;
+    width: 30px;
+    background: black;
+    color: white;
+    position: absolute;
+    margin-left: -15px;
+    z-index: 1;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+.key.black:active {
+    transform: translateY(3px);
+}
+.shortcut {
+    position: absolute;
+    bottom: 10px;
+    font-size: 14px;
+    color: gray;
+    display: none;
+}
+#toggle-keys:checked ~ .piano .shortcut {
+    display: block;
+}
+.watermark {
+    margin-top: 10px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+}
